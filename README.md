@@ -1,7 +1,7 @@
 # sandboxed.js
 function factory for sandboxed custom expressions
 
-## Allowed syntax
+## Allowed
 
 * read variables defined on data object
 * call functions defined on function object
@@ -9,7 +9,7 @@ function factory for sandboxed custom expressions
 * allows number literals
 * allows arithmetic operators, comparison operators, binary operators, ternary operator, parentheses, comma operator, boolean operators
 
-## Disallowed syntax
+## Disallowed
 
 * Assignment operators
 * Array literals and object literals
