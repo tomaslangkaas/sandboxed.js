@@ -3,11 +3,15 @@ function factory for sandboxed custom expressions
 
 ```javascript
 
-var readableVariables = {a: 3, b: 5};
+var readableVariables = {
+  a: 3, 
+  b: 5,
+  PI: Math.PI
+};
 
-var availableFunctions = {exp: function(base, power){
-  return Math.pow(base, power);
-}};
+var availableFunctions = {
+  exp: Math.pow
+};
 
 var safeFunction = sandboxed('exp(a, b)');
 
