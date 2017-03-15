@@ -29,6 +29,16 @@ console.log(
 * Treats any sequence of alphanumeric characters (not starting with a digit) as an identifier referring to a variable defined on the provided object of readable variables or a function defined on the provided function object
 * Filters out anything else (including whitespace, assignment operators, other literals, global objects, constructors, function declarations, control statements)
 
+## API
+
+`sandboxedFunction = sandboxed(expressionString [, whatToReturnOnCompileFailure])`
+
+The `sandboxed` function converts a string of JavaScript code to a function. If compilation fails (syntax error or prohibited syntax), it returns `whatToReturnOnCompileFailure` or false.
+
+`returnValue = sandboxedFunction([readableVariables][, callableFunctions][, errorHandler])`
+
+The `sandboxedFunction` can be called with an optional object of readable data, an optional object of callable functions, and an optional errorHandler (otherwise it silently fails).
+
 ## Allowed
 
 * read variables defined on data object
