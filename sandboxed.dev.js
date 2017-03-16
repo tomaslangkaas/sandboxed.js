@@ -8,7 +8,7 @@ var sandboxed = (function() {
       nonWhitelist ? 
         '' : 
         (blacklist ? 
-          ';*' : 
+          '' : 
           (identifier ?
             (functionCall ? 
               '(f.hasOwnProperty("' + identifier +
