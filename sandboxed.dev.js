@@ -8,7 +8,7 @@ var sandboxed = (function() {
       nonWhitelist ? 
         '' : 
         (blacklist ? 
-          '' : 
+          ';*' : 
           (identifier ?
             (functionCall ? 
               '(f.hasOwnProperty("' + identifier +
@@ -40,6 +40,8 @@ var sandboxed = (function() {
   }
 
   buildFunction['compile'] = compileExpression;
+  
+  buildFunction['v'] = 0.1;
 
   return buildFunction;
 })();
