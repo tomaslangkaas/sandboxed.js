@@ -23,9 +23,9 @@ console.log(
 
 ## What does it do?
 
-`sandboxed` is a function that converts a string with a JavaScript code expression and returns a sandboxed function. `sandboxed` only allows a strict subset of JavaScript, it does not allow variable assignment or mutation, function declarations or access to objects not provided directly to the sandboxed function. It is possible to provide read access to variables defined on an object provided to the sandboxed function, and allow calling of functions defined on another object provided to the sandboxed function.
+`sandboxed` is a function that converts a string with a JavaScript code expression to a sandboxed function. `sandboxed` only allows a strict subset of JavaScript, it does not allow variable assignment or mutation, function declarations or access to objects, functions or data not provided directly to the sandboxed function. It is possible to provide an object with readable variables defined and an object with callable functions the sandboxed function.
 
-* Allows comparison operators: `!=`, `!==`, `<=`, `<==`, `>=`, `>==`, `==`, and `===`,
+* Allows comparison operators: `!=`, `!==`, `<=`, `>=`, ´>´, ´<´, `==`, and `===`,
 * Allows the following other operators: `^`, `<`, `>`, `%`, `/`, `+`, `-`, `*`, `&`, `|`, `^`, `~`, `:`, `,`, `?`, and `!`
 * Allows parenthesis: `(` and `)`
 * Allows decimal number literals, such as `14`, `-3.14`, `1.2e-10`
