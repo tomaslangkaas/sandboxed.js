@@ -2,15 +2,29 @@
 <script src="sandboxed.js"></script>
 <script>
 
-test('>>=', '>>=', 'asdf');
+  test('Remove >>=', '>>=', '');
+  test('Remove >>>=', '>>>=', '');
+  test('Remove <<=', '<<=', '');
+  test('Remove {}', '{}', '');
+  test('Remove []', '[]', '');
+  test('Remove =', '=', '');
+  test('Remove +=', '+=', '');
+  test('Remove -=', '-=', '');
+  test('Remove *=', '*=', '');
+  test('Remove /=', '/=', '');
+  test('Remove %=', '%=', '');
+  test('Remove ^=', '^=', '');
+  test('Remove |=', '|=', '');
+  test('Remove &=', '&=', '');
+  test('Remove ~=', '~=', '');
+  
+  alert('All tests passed');
 
-alert('All tests passed');
-
-function test(description, actual, expected) {
-  if(sandboxed.compile(actual) !== expected) {
-    alert('Test failed: ' + description);
-    throw new Error('Error: ' + description); 
+  function test(description, actual, expected) {
+    if(sandboxed.compile(actual) !== expected) {
+      alert('Test failed: ' + description);
+      throw new Error('Error: ' + description); 
+    }
   }
-}
 </script>
 </html>
