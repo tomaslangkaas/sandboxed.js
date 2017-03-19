@@ -7,8 +7,7 @@ var sandboxedFunction = sandboxed('exp(a, b)');
 
 var readableVariables = {
   a: 3, 
-  b: 5,
-  PI: Math.PI
+  b: 5
 };
 
 var availableFunctions = {
@@ -23,7 +22,7 @@ console.log(
 
 ## What does it do?
 
-`sandboxed` is a function that converts a string with a JavaScript code expression to a sandboxed function. `sandboxed` only allows a strict subset of JavaScript, it does not allow variable assignment or mutation, function declarations or access to objects, functions or data not provided directly to the sandboxed function. It is possible to provide an object with readable variables and an object with callable functions the sandboxed function.
+`sandboxed` is a function that converts a string with a JavaScript code expression to a sandboxed function.  A sandboxed expression can only read variables and invoke functions that are explicitly made available to the expression. `sandboxed` only allows a strict subset of JavaScript, it does not allow variable assignment or mutation, function declarations or access to objects, functions or data not provided directly to the sandboxed function.
 
 * Allows comparison operators: `!=`, `!==`, `<=`, `>=`, `>`, `<`, `==`, and `===`,
 * Allows the following other operators: `^`, `<`, `>`, `%`, `/`, `+`, `-`, `*`, `&`, `|`, `^`, `~`, `:`, `,`, `?`, and `!`
