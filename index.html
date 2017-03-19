@@ -1,29 +1,47 @@
 <html>
 <script src="sandboxed.js"></script>
 <script>
+  var passedTests = 0;
 
-  test('Remove >>=', '>>=', '');
-  //test('Prevent >>>=', '>>>=', '>');
-  test('Remove <<=', '<<=', '');
+  //prevent increment and decrement operators
+  test('Remove ++', '++', '');
+  test('Remove --', '--', '');
+
+  //prevent object literals and code blocks
   test('Remove {}', '{}', '');
+
+  //prevent property access and array literals
   test('Remove []', '[]', '');
+
+  //remove semicolon
+  test('Remove ;', ';', '');
+
+  //remove single quotes
+  test('Remove \'', '\'', '');
+
+  //prevent assigment operators
   test('Remove =', '=', '');
-  test('Remove +=', '+=', '');
-  test('Remove -=', '-=', '');
-  test('Remove *=', '*=', '');
-  test('Remove /=', '/=', '');
-  test('Remove %=', '%=', '');
-  test('Remove ^=', '^=', '');
-  test('Remove |=', '|=', '');
-  test('Remove &=', '&=', '');
-  test('Remove ~=', '~=', '');
-  
-  alert('All tests passed');
+  test('Remove >>=', '>>=', '');
+  test('Remove <<=', '<<=', '');
+  test('Prevent >>>=', '>>>=', '>');
+  test('Prevent +=', '+=', '+');
+  test('Prevent -=', '-=', '-');
+  test('Prevent *=', '*=', '*');
+  test('Prevent /=', '/=', '/');
+  test('Prevent %=', '%=', '%');
+  test('Prevent ^=', '^=', '^');
+  test('Prevent |=', '|=', '|');
+  test('Prevent &=', '&=', '&');
+  test('Prevent ~=', '~=', '~');
+
+  alert('All ' + passedTests + ' tests passed');
 
   function test(description, actual, expected) {
     if(sandboxed.compile(actual) !== expected) {
       alert('Test failed: ' + description);
-      throw new Error('Error: ' + description); 
+      throw new Error('Error: ' + description);
+    } else {
+      passedTests++;
     }
   }
 </script>

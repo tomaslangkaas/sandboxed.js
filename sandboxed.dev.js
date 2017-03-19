@@ -1,22 +1,22 @@
 var sandboxed = (function() {
   var expRe =
-    /(>>\=|<<\=|\+\+|\-\-)|\d*\.?\d+(?:[eE][+\-]?\d+)?|[\!\=<>]\=\=?|"(?:\\"|\\\\|\\n|[^\\"])*"|(\w+)(\()?|(\(|\))|([^<>%\/\+\-\*\&\|\^\~\:\,\?\!;])/g;
+    /(>>\=|<<\=|\+\+|\-\-)|\d*\.?\d+(?:[eE][+\-]?\d+)?|[\!\=<>]\=\=?|"(?:\\"|\\\\|\\n|[^\\"])*"|(\w+)(\()?|(\(|\))|([^<>%\/\+\-\*\&\|\^\~\:\,\?\!])/g;
 
   var expReFn = function(match, blacklist, identifier,
     functionCall, group, nonWhitelist) {
     return (
-      nonWhitelist ? 
-        '' : 
-        (blacklist ? 
-          '' : 
+      nonWhitelist ?
+        '' :
+        (blacklist ?
+          '' :
           (identifier ?
-            (functionCall ? 
+            (functionCall ?
               '(f.hasOwnProperty("' + identifier +
               '")&&f["' + identifier + '"](' :
-              '(d.hasOwnProperty("' + identifier + 
+              '(d.hasOwnProperty("' + identifier +
               '")&&d["' + identifier + '"])'
-            ) : 
-            (group ? 
+            ) :
+            (group ?
               group + group :
               match
             )
@@ -40,7 +40,7 @@ var sandboxed = (function() {
   }
 
   buildFunction['compile'] = compileExpression;
-  
+
   buildFunction['v'] = 0.1;
 
   return buildFunction;
